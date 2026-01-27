@@ -7,14 +7,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageLoader from "./components/PageLoader";
 
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Events = lazy(() => import("./pages/Events"));
-const AlumniDirectory = lazy(() => import("./pages/Alumni"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const BiocratTeamPage = lazy(() => import("./pages/Team"));
-const ContactUs = lazy(() => import("./pages/Contact"));
-const Blogs = lazy(() => import("./pages/Blogs"));
+import Home from "./pages/Home";
+import Events from "./pages/Events";
+import About from "./pages/About";
+import AlumniDirectory from "./pages/Alumni";
+import Gallery from "./pages/Gallery";
+import BiocratTeamPage from "./pages/Team";
+import ContactUs from "./pages/Contact";
+import Blogs from "./pages/Blogs";
 const AdminPanel = lazy(() => import("./pages/Adminpannel"));
 const NotFound = lazy(() => import("./components/Notfound"));
 const DevelopersSection = lazy(() =>
@@ -56,39 +56,15 @@ function PublicLayout() {
       <Navbar />
 
       <main>
-        <Suspense fallback={<PageLoader />}>
-          <section id="home">
-            <Home />
-          </section>
+       <section id="home"><Home /></section>
+<section id="events"><Events /></section>
+<section id="about"><About /></section>
+<section id="team"><BiocratTeamPage /></section>
+<section id="alumni"><AlumniDirectory /></section>
+<section id="gallery"><Gallery /></section>
+<section id="blog"><Blogs /></section>
+<section id="contact"><ContactUs /></section>
 
-          <section id="events">
-            <Events />
-          </section>
-
-          <section id="about">
-            <About />
-          </section>
-
-          <section id="team">
-            <BiocratTeamPage />
-          </section>
-
-          <section id="alumni">
-            <AlumniDirectory />
-          </section>
-
-          <section id="gallery">
-            <Gallery />
-          </section>
-
-          <section id="blog">
-            <Blogs />
-          </section>
-
-          <section id="contact">
-            <ContactUs />
-          </section>
-        </Suspense>
       </main>
 
       <Footer />
